@@ -1,19 +1,32 @@
 import React from 'react';
-import { Navigation, NavigationTypography } from '../components/Navigation';
-import Anchor from '../components/Anchor';
+import { Navigation, NavigationTypography } from '../Navigation';
+import Anchor from '../Anchor';
 
 const links = [
   {
     name: 'Home',
-    href: '/',
+    href: '#',
+  },
+  {
+    name: 'Services',
+    href: '#',
   },
   {
     name: 'About',
-    href: '/about',
+    href: '#',
+  },
+  {
+    name: 'Contact',
+    href: '#',
   },
 ];
 
-const Navbar = () => (
+export default {
+  title: 'Navigation/Header',
+  component: Navigation,
+};
+
+export const Navbar = () => (
   <Navigation
     links={links.map((link) => {
       const { name, href } = link;
@@ -27,13 +40,3 @@ const Navbar = () => (
     })}
   />
 );
-
-const LayoutContainer = ({children}) => (
-    <>
-    <Navbar/>
-      {children}
-    <footer>Footer</footer>
-    </>
-  )
-
-export default LayoutContainer
