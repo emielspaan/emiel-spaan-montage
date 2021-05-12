@@ -1,28 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { Link } from "gatsby"
 
-const StyledAnchor = styled.a`
+const StyledAnchor = styled(Link)`
   text-decoration: none;
 `;
 
 const Anchor = ({
-  href, target, children,
+  href, children,
 }) => (
-  <StyledAnchor href={href} target={target} rel={target === '_blank' ? 'nofollow noopener' : null}>
+  <StyledAnchor to={href}>
     {children}
   </StyledAnchor>
 );
 
 Anchor.propTypes = {
   href: PropTypes.string,
-  target: PropTypes.string,
   children: PropTypes.node,
 };
 
 Anchor.defaultProps = {
   href: null,
-  target: null,
   children: null,
 };
 

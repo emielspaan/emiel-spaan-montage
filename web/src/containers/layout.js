@@ -1,6 +1,16 @@
 import React from 'react';
 import { Navigation, NavigationTypography } from '../components/Navigation';
 import Anchor from '../components/Anchor';
+import Theme from '../components/Theme/Theme';
+import styled from "@emotion/styled";
+
+const NavLinkText = styled.h6`
+  font-family: "Oswald";
+  color: white;
+  font-size: 12px;
+  padding: 0 24px;
+  text-transform: uppercase;
+`;
 
 const links = [
   {
@@ -19,9 +29,9 @@ const Navbar = () => (
       const { name, href } = link;
       return (
         <Anchor key={name} href={href}>
-          <NavigationTypography variant="subtitle2" color="textSecondary">
+          <NavLinkText>
             {name}
-          </NavigationTypography>
+          </NavLinkText>
         </Anchor>
       );
     })}
@@ -29,11 +39,11 @@ const Navbar = () => (
 );
 
 const LayoutContainer = ({children}) => (
-    <>
+    <Theme>
     <Navbar/>
       {children}
     <footer>Footer</footer>
-    </>
+    </Theme>
   )
 
 export default LayoutContainer

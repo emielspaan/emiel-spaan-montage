@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { bodyFont, headingFont } from './fonts';
 import { palette } from './variables';
 
@@ -8,7 +8,7 @@ const {
   primary, secondary, textPrimary, textSecondary,
 } = palette;
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: primary,

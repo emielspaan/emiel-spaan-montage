@@ -18,7 +18,20 @@ module.exports = {
         watchMode: true,
         overlayDrafts: true
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Oswald",
+              variants: ["400", "700"],
+            },
+          ],
+        },
+      },
+    },
   ]
 }
 

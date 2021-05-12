@@ -1,5 +1,5 @@
 const bodyFont = [
-  'Georgia',
+  'Oswald',
   '-apple-system',
   'BlinkMacSystemFont',
   '"Segoe UI"',
@@ -13,7 +13,7 @@ const bodyFont = [
 ].join(',');
 
 const headingFont = [
-  'Roboto',
+  'Arial',
   'Helvetica',
   'Arial',
   'sans-serif',
