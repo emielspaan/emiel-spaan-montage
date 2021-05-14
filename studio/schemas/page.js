@@ -7,14 +7,19 @@ export default {
   // __experimental_actions: ['update', 'publish', /* 'create', 'delete' */],
   fields: [
     {
-      name: 'title',
-      title: 'Title',
+      name: 'heroTitle',
+      title: 'Titel',
       type: 'string'
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent'
-    }
+      name: 'heroDesciption',
+      title: 'Grote Tekst',
+      type: 'string'
+    },
+    {
+      name: 'heroImage',
+      title: 'Plaatje',
+      type: 'image'
+    },
   ]
 }
