@@ -1,13 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../containers/layout'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const homePageQuery = graphql`
   query homePageQuery {
-    allSanityPage {
-      edges {
-        node {
-          heroTitle
+    sanityPage {
+      heroTitle
+      heroImage {
+        asset {
+          gatsbyImageData(width: 200, placeholder: BLURRED, formats: JPG)
         }
       }
     }
@@ -16,14 +18,14 @@ export const homePageQuery = graphql`
 
 const IndexPage = (props) => {
   const { 
-      node: {
         heroTitle,
-      }
-  } = props.data.allSanityPage.edges[0];
+        heroImage
+  } = props.data.sanityPage;
 
   return (
     <Layout>
         <h1>{heroTitle}</h1>
+        <GatsbyImage image={heroImage.asset.gatsbyImageData} alt={heroTitle} />
     </Layout>
   )
 }
