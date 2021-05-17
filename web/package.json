@@ -18,7 +18,6 @@
     "workers-deploy": "npm run build && wrangler publish",
     "now-dev": "npm run build",
     "start": "npm run develop",
-    "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
@@ -47,15 +46,6 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "eslint": "^7.26.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "prettier-eslint-cli": "^5.0.0",
     "prop-types": "^15.7.2"
   }
 }

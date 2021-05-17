@@ -57,6 +57,20 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          padding: 0,
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none',
+        }
+      }
+    },
     MuiDrawer: {
       styleOverrides: {
         paper: {

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Navigation, NavigationTypography } from '../components/Navigation';
+import { Navigation } from '../components/Navigation';
 import Anchor from '../components/Anchor';
 import Theme from '../components/Theme/Theme';
 import styled from "@emotion/styled";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const NavLinkText = styled.h6`
   font-family: "Oswald";
@@ -40,7 +41,8 @@ const Navbar = () => (
 
 const LayoutContainer = ({children}) => (
     <Theme>
-    <Navbar/>
+    <CssBaseline />
+    <Navbar />
       {children}
     <footer>Footer</footer>
     </Theme>
