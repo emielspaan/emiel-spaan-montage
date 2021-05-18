@@ -13,6 +13,12 @@ const bodyFont = [
 ].join(',');
 
 const headingFont = [
+  'Oswald',
+  '-apple-system',
+  'BlinkMacSystemFont',
+  '"Segoe UI"',
+  'Roboto',
+  '"Helvetica Neue"',
   'Arial',
   'Helvetica',
   'Arial',

@@ -1,15 +1,12 @@
 import React from 'react';
+import styled from '@emotion/styled';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { Navigation } from '../components/Navigation';
 import Anchor from '../components/Anchor';
 import Theme from '../components/Theme/Theme';
-import styled from "@emotion/styled";
-import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '../components/Typography';
 
-const NavLinkText = styled.h6`
-  font-family: "Oswald";
-  color: white;
-  font-size: 12px;
-  padding: 0 24px;
+const StyledTypography = styled(Typography)`
   text-transform: uppercase;
 `;
 
@@ -30,22 +27,22 @@ const Navbar = () => (
       const { name, href } = link;
       return (
         <Anchor key={name} href={href}>
-          <NavLinkText>
+          <StyledTypography variant="subtitle2">
             {name}
-          </NavLinkText>
+          </StyledTypography>
         </Anchor>
       );
     })}
   />
 );
 
-const LayoutContainer = ({children}) => (
-    <Theme>
+const LayoutContainer = (children) => (
+  <Theme>
     <CssBaseline />
     <Navbar />
-      {children}
+    {children}
     <footer>Footer</footer>
-    </Theme>
-  )
+  </Theme>
+);
 
-export default LayoutContainer
+export default LayoutContainer;

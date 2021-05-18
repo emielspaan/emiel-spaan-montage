@@ -31,5 +31,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "lerna": "^3.14.1",
     "rimraf": "^2.6.3"
-  }
+  },
+  "dependencies": {}
 }

@@ -22,6 +22,7 @@ const theme = createTheme({
     },
   },
   typography: {
+    fontFamily: headingFont,
     body1: {
       fontFamily: bodyFont,
     },
@@ -68,8 +69,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: 'none',
-        }
-      }
+        },
+      },
     },
     MuiDrawer: {
       styleOverrides: {
