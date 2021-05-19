@@ -30,7 +30,7 @@ module.exports = {
           google: [
             {
               family: 'Oswald',
-              variants: ['400', '700'],
+              variants: ['400', '500'],
             },
           ],
         },

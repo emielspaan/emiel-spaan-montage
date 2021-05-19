@@ -5,16 +5,13 @@ import { bodyFont, headingFont } from './fonts';
 import { palette } from './variables';
 
 const {
-  primary, secondary, textPrimary, textSecondary,
+  primary, textPrimary, textSecondary, backgroundPrimary, backgroundSecondary,
 } = palette;
 
 const theme = createTheme({
   palette: {
     primary: {
       main: primary,
-    },
-    secondary: {
-      main: secondary,
     },
     text: {
       primary: textPrimary,
@@ -23,6 +20,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: headingFont,
+    fontWeight: 500,
     body1: {
       fontFamily: bodyFont,
     },
@@ -69,6 +67,17 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: 'none',
+          backgroundColor: backgroundPrimary,
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          '@media(min-width:600px)': {
+            padding: '0px',
+            height: '108px',
+          },
         },
       },
     },

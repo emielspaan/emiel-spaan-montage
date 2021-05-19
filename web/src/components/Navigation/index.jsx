@@ -60,6 +60,7 @@ const Navigation = ({ links }) => {
       >
         <MenuIcon />
       </StyledIconButton>
+      <p>Emiel Spaan Montage</p>
       <StyledToolbar>
         <Drawer open={open} onClose={handleClose}>
           {links}
