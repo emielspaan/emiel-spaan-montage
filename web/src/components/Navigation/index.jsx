@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { IconButton } from '../Button';
 import Typography from '../Typography';
 import Drawer from '../Drawer';
@@ -31,6 +33,13 @@ const NavigationTypography = styled(Typography)`
   }
 `;
 
+const StyledGatsbyImage = styled(GatsbyImage)`
+  height: auto;
+  width: 100%;
+  max-width: 120px;
+  margin: 24px 48px;
+`;
+
 const StyledIconButton = styled(IconButton)`
   && {
     @media (min-width: 1024px) {
@@ -51,7 +60,32 @@ const Navigation = ({ links }) => {
 
   const handleDrawer = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const data = useStaticQuery(
+    graphql`
+    query LogoQuery {
+      sanityLogo {
+          logo {
+            asset {
+              gatsbyImageData(placeholder: BLURRED, formats: PNG),
+            },
+          },
+        },
+      },
+`,
+  );
 
+  const {
+    sanityLogo:
+    {
+      logo:
+      {
+        asset:
+        { gatsbyImageData },
+      },
+    },
+  } = data;
+
+  console.log(data);
   return (
     <StyledAppBar position="static">
       <StyledIconButton
@@ -60,7 +94,12 @@ const Navigation = ({ links }) => {
       >
         <MenuIcon />
       </StyledIconButton>
-      <p>Emiel Spaan Montage</p>
+      <div>
+        <StyledGatsbyImage
+          image={gatsbyImageData}
+          alt="Emiel Spaan Montage"
+        />
+      </div>
       <StyledToolbar>
         <Drawer open={open} onClose={handleClose}>
           {links}

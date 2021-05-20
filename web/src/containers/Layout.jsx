@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Navigation } from '../components/Navigation';
 import Anchor from '../components/Anchor';

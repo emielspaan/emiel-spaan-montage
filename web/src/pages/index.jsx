@@ -15,6 +15,8 @@ const StyledTypography = styled(Typograghy)`
   padding: 24px;
   max-width: 300px;
   margin: 0 auto;
+  text-transform: uppercase;
+  font-weight: 500;
 
   @media(min-width: 1024px) {
     max-width: 500px;
@@ -56,7 +58,7 @@ const IndexPage = (props) => {
         alignItems="center"
       >
         <Grid item lg={6} xs={12} md={6} sm={6}>
-          <StyledTypography variant="h3">{heroTitle}</StyledTypography>
+          <StyledTypography variant="h4">{heroTitle}</StyledTypography>
         </Grid>
         <Grid item lg={6} xs={12} md={6} sm={6}>
           <StyledGatsbyImage
