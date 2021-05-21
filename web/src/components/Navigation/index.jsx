@@ -33,11 +33,20 @@ const NavigationTypography = styled(Typography)`
   }
 `;
 
+const LogoContainer = styled.div`
+  max-width: 120px;
+  margin: 24px auto;
+  position: relative;
+  left: -24px;
+
+  @media (min-width:1024px) {
+    margin: 24px 48px;
+  }
+`;
+
 const StyledGatsbyImage = styled(GatsbyImage)`
   height: auto;
   width: 100%;
-  max-width: 120px;
-  margin: 24px 48px;
 `;
 
 const StyledIconButton = styled(IconButton)`
@@ -94,12 +103,12 @@ const Navigation = ({ links }) => {
       >
         <MenuIcon />
       </StyledIconButton>
-      <div>
+      <LogoContainer>
         <StyledGatsbyImage
           image={gatsbyImageData}
           alt="Emiel Spaan Montage"
         />
-      </div>
+      </LogoContainer>
       <StyledToolbar>
         <Drawer open={open} onClose={handleClose}>
           {links}

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { graphql } from 'gatsby';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Navigation } from '../components/Navigation';
 import Anchor from '../components/Anchor';
@@ -9,6 +8,9 @@ import Typography from '../components/Typography';
 import { palette } from '../components/Theme/variables';
 
 const StyledTypography = styled(Typography)`
+  @media (max-width: 1024px) {
+    padding: 24px;
+  }
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 24px;
@@ -16,7 +18,8 @@ const StyledTypography = styled(Typography)`
   color: ${palette.textPrimary};
 
   ${(props) => props.contact
-  && ` font-size: 20px;
+  && ` @media (min-width: 1024px) {
+       font-size: 20px;
        background-color: ${palette.primary};
        color: ${palette.textSecondary};
        height: 108px;
@@ -35,6 +38,7 @@ const StyledTypography = styled(Typography)`
         left: -16px;
         transform: skewx(-16deg);
       }
+    }
     `
 }
 `;
