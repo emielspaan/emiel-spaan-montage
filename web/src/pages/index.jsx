@@ -25,7 +25,7 @@ const StyledTypography = styled(Typography)`
     position: absolute;
     padding: 0;
     z-index: 10;
-    top: 20%;
+    top: 30%;
     text-align: center;
     font-size: 48px;
     line-height: 56px;
@@ -46,6 +46,7 @@ const ContactBackground = styled(Grid)`
   position: relative;
   min-height: 108px;
   top: -10px;
+  padding: 24px 0;
 
   @media(min-width:600px) {
     padding: 0;
@@ -71,10 +72,12 @@ const ContactTypography = styled(Typography)`
   text-transform: uppercase;
   color: ${palette.textSecondary};
   font-weight: 500;
-  padding: 24px 0;
+  padding: 24px;
+  font-size: 20px;
 
   @media(min-width: 600px) {
     padding: 0;
+    font-size: 14px;
   }
 `;
 
@@ -161,7 +164,7 @@ const IndexPage = (props) => {
               emiel@EMIELSPAANMONTAGE.nl
             </ContactDetail>
           </Grid>
-          <Grid item lg={4}>
+          <Grid item lg={5}>
             <ContactDetail
               icon={<HomeIcon />}
             >
