@@ -21,29 +21,47 @@ const theme = createTheme({
   typography: {
     fontFamily: headingFont,
     fontWeight: 500,
+    fontSize: 16,
     body1: {
       fontFamily: bodyFont,
     },
     body2: {
       fontFamily: bodyFont,
     },
-    heading1: {
+    h1: {
       fontFamily: headingFont,
     },
-    heading2: {
+    h2: {
       fontFamily: headingFont,
     },
-    heading3: {
+    h3: {
+      fontFamily: headingFont,
+      fontSize: '1.2rem',
+      '@media (min-width:600px)': {
+        fontSize: '1.5rem',
+      },
+      '@media (min-width:1024px)': {
+        fontSize: '4rem',
+      },
+      '@media (min-width:1680px)': {
+        fontSize: '6rem',
+      },
+    },
+    h4: {
       fontFamily: headingFont,
     },
-    heading4: {
+    h5: {
       fontFamily: headingFont,
     },
-    heading5: {
+    h6: {
       fontFamily: headingFont,
     },
-    heading6: {
+    subtitle2: {
       fontFamily: headingFont,
+      fontSize: '1.2rem',
+      '@media (min-width:1680px)': {
+        fontSize: '1.3rem',
+      },
     },
   },
   breakpoints: {

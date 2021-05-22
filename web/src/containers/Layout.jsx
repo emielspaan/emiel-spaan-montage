@@ -14,7 +14,6 @@ const StyledTypography = styled(Typography)`
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 24px;
-  font-size: 16px;
   color: ${palette.textPrimary};
 
   ${(props) => props.contact

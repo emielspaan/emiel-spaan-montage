@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import Button from '@material-ui/core/Button';
 import MailIcon from '@material-ui/icons/Mail';
 import PhoneIcon from '@material-ui/icons/Phone';
 import HomeIcon from '@material-ui/icons/Home';
@@ -24,10 +23,11 @@ const StyledTypography = styled(Typography)`
 
   @media(max-width: 600px) {
     position: absolute;
+    padding: 0;
     z-index: 10;
-    top: 40%;
+    top: 20%;
     text-align: center;
-    font-size: 40px;
+    font-size: 48px;
     line-height: 56px;
     color: ${palette.textSecondary};
     left: 0;
@@ -92,7 +92,7 @@ const Container = styled.div`
 const ContactDetail = ({ icon, children }) => (
   <Container>
     {icon}
-    <ContactTypography>
+    <ContactTypography variant="subtitle2">
       {children}
     </ContactTypography>
   </Container>
@@ -147,7 +147,7 @@ const IndexPage = (props) => {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid item lg={4}>
+          <Grid item lg={3}>
             <ContactDetail
               icon={<PhoneIcon />}
             >
