@@ -12,7 +12,7 @@ import Typography from '../components/Typography';
 import { palette } from '../components/Theme/variables';
 
 const StyledGatsbyImage = styled(GatsbyImage)`
-  max-height: calc(100vh - 74px);
+  max-height: calc(100vh - 108px);
 `;
 
 const StyledTypography = styled(Typography)`
@@ -41,12 +41,16 @@ const StyledTypography = styled(Typography)`
   }
 `;
 
+const Services = styled(Grid)`
+`;
+
 const ContactBackground = styled(Grid)`
   background-color: ${palette.primary};
-  position: relative;
+  position: absolute;
   min-height: 108px;
-  top: -10px;
   padding: 24px 0;
+  z-index: 5;
+  bottom: 0;
 
   @media(min-width:600px) {
     padding: 0;
@@ -54,7 +58,6 @@ const ContactBackground = styled(Grid)`
 
   @media(min-width: 1024px){
     max-width: 75%;
-    top: -113px;
 
     &::after {
       content: "";
@@ -134,44 +137,68 @@ const IndexPage = (props) => {
         container
         alignItems="center"
       >
-        <Grid item lg={6} xs={12} md={6} sm={6}>
-          <StyledTypography variant="h3">{heroTitle}</StyledTypography>
+        <Grid
+          container
+        >
+          <Grid item lg={6} xs={12} md={6} sm={6}>
+            <StyledTypography variant="h3">{heroTitle}</StyledTypography>
+          </Grid>
+          <Grid item lg={6} xs={12} md={6} sm={6}>
+            <StyledGatsbyImage
+              layout="fullWidth"
+              image={gatsbyImageData}
+              alt={heroTitle}
+            />
+          </Grid>
+          <ContactBackground
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Grid item lg={3}>
+              <ContactDetail
+                icon={<PhoneIcon />}
+              >
+                06 1164 8410
+              </ContactDetail>
+            </Grid>
+            <Grid item lg={4}>
+              <ContactDetail
+                icon={<MailIcon />}
+              >
+                emiel@EMIELSPAANMONTAGE.nl
+              </ContactDetail>
+            </Grid>
+            <Grid item lg={5}>
+              <ContactDetail
+                icon={<HomeIcon />}
+              >
+                Oosterwerf 44, 1505KC, Zaandam
+              </ContactDetail>
+            </Grid>
+          </ContactBackground>
         </Grid>
-        <Grid item lg={6} xs={12} md={6} sm={6}>
+        <Grid item lg={6} md={6} sm={6} xs={12}>
           <StyledGatsbyImage
             layout="fullWidth"
             image={gatsbyImageData}
             alt={heroTitle}
           />
         </Grid>
-        <ContactBackground
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Grid item lg={3}>
-            <ContactDetail
-              icon={<PhoneIcon />}
-            >
-              06 1164 8410
-            </ContactDetail>
-          </Grid>
-          <Grid item lg={4}>
-            <ContactDetail
-              icon={<MailIcon />}
-            >
-              emiel@EMIELSPAANMONTAGE.nl
-            </ContactDetail>
-          </Grid>
-          <Grid item lg={5}>
-            <ContactDetail
-              icon={<HomeIcon />}
-            >
-              Oosterwerf 44, 1505KC, Zaandam
-            </ContactDetail>
-          </Grid>
-        </ContactBackground>
+        <Grid item lg={6} md={6} sm={6} xs={12}>
+          <p>Test</p>
+        </Grid>
+        <Grid item lg={6} md={6} sm={6} xs={12}>
+          <p>Test</p>
+        </Grid>
+        <Grid item lg={6} md={6} sm={6} xs={12}>
+          <StyledGatsbyImage
+            layout="fullWidth"
+            image={gatsbyImageData}
+            alt={heroTitle}
+          />
+        </Grid>
       </Grid>
     </Layout>
   );
