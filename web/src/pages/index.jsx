@@ -25,9 +25,9 @@ const StyledTypography = styled(Typography)`
     position: absolute;
     padding: 0;
     z-index: 10;
-    top: 30%;
+    top: 40%;
     text-align: center;
-    font-size: 48px;
+    font-size: 40px;
     line-height: 56px;
     color: ${palette.textSecondary};
     left: 0;
@@ -41,30 +41,29 @@ const StyledTypography = styled(Typography)`
   }
 `;
 
-const Services = styled(Grid)`
-`;
-
 const ContactBackground = styled(Grid)`
+  margin-top: -5px;
   background-color: ${palette.primary};
-  position: absolute;
+  position: static;
+  padding: 16px 0;
   min-height: 108px;
-  padding: 24px 0;
-  z-index: 5;
-  bottom: 0;
 
   @media(min-width:600px) {
     padding: 0;
   }
 
   @media(min-width: 1024px){
+    z-index: 5;
+    bottom: 0;
     max-width: 75%;
+    position: absolute;
 
     &::after {
       content: "";
       height: 108px;
       width: 64px;
-      background-color: ${palette.primary};
       position: absolute;
+      background-color: ${palette.primary};
       right: -16px;
       transform: skewx(16deg);
     }
@@ -76,7 +75,6 @@ const ContactTypography = styled(Typography)`
   color: ${palette.textSecondary};
   font-weight: 500;
   padding: 24px;
-  font-size: 20px;
 
   @media(min-width: 600px) {
     padding: 0;
@@ -104,11 +102,33 @@ const ContactDetail = ({ icon, children }) => (
   </Container>
 );
 
+const StyledGrid = styled(Grid)`
+    flex-direction: column-reverse;
+
+    @media(min-width:600px) {
+      flex-direction: ${(props) => props.direction};
+    }
+`;
+
 export const homePageQuery = graphql`
   query homePageQuery {
     sanityPage {
       heroTitle
       heroImage {
+        asset {
+          gatsbyImageData(placeholder: BLURRED, formats: JPG)
+        }
+      }
+      montageTitle
+      montageDescription
+      montageImage {
+        asset {
+          gatsbyImageData(placeholder: BLURRED, formats: JPG)
+        }
+      }
+      verfSpuitenTitle
+      verfSpuitenDescription
+      verfSpuitenImage {
         asset {
           gatsbyImageData(placeholder: BLURRED, formats: JPG)
         }
@@ -124,7 +144,21 @@ const IndexPage = (props) => {
         heroTitle,
         heroImage: {
           asset: {
-            gatsbyImageData,
+            gatsbyImageData: heroImage,
+          },
+        },
+        verfSpuitenTitle,
+        verfSpuitenDescription,
+        verfSpuitenImage: {
+          asset: {
+            gatsbyImageData: verfSpuitenImage,
+          },
+        },
+        montageTitle,
+        montageDescription,
+        montageImage: {
+          asset: {
+            gatsbyImageData: montageImage,
           },
         },
       },
@@ -135,10 +169,10 @@ const IndexPage = (props) => {
     <Layout>
       <Grid
         container
-        alignItems="center"
       >
         <Grid
           container
+          alignItems="center"
         >
           <Grid item lg={6} xs={12} md={6} sm={6}>
             <StyledTypography variant="h3">{heroTitle}</StyledTypography>
@@ -146,7 +180,7 @@ const IndexPage = (props) => {
           <Grid item lg={6} xs={12} md={6} sm={6}>
             <StyledGatsbyImage
               layout="fullWidth"
-              image={gatsbyImageData}
+              image={heroImage}
               alt={heroTitle}
             />
           </Grid>
@@ -179,26 +213,40 @@ const IndexPage = (props) => {
             </Grid>
           </ContactBackground>
         </Grid>
-        <Grid item lg={6} md={6} sm={6} xs={12}>
-          <StyledGatsbyImage
-            layout="fullWidth"
-            image={gatsbyImageData}
-            alt={heroTitle}
-          />
-        </Grid>
-        <Grid item lg={6} md={6} sm={6} xs={12}>
-          <p>Test</p>
-        </Grid>
-        <Grid item lg={6} md={6} sm={6} xs={12}>
-          <p>Test</p>
-        </Grid>
-        <Grid item lg={6} md={6} sm={6} xs={12}>
-          <StyledGatsbyImage
-            layout="fullWidth"
-            image={gatsbyImageData}
-            alt={heroTitle}
-          />
-        </Grid>
+        <StyledGrid
+          direction="row"
+          container
+          alignItems="center"
+        >
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <StyledGatsbyImage
+              layout="fullWidth"
+              image={montageImage}
+              alt={montageTitle}
+            />
+          </Grid>
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <Typography variant="h4">{montageTitle}</Typography>
+            <Typography variant="body1">{montageDescription}</Typography>
+          </Grid>
+        </StyledGrid>
+        <StyledGrid
+          direction="row-reverse"
+          container
+          alignItems="center"
+        >
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <StyledGatsbyImage
+              layout="fullWidth"
+              image={verfSpuitenImage}
+              alt={verfSpuitenTitle}
+            />
+          </Grid>
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <Typography variant="h4">{verfSpuitenTitle}</Typography>
+            <Typography variant="body1">{verfSpuitenDescription}</Typography>
+          </Grid>
+        </StyledGrid>
       </Grid>
     </Layout>
   );
