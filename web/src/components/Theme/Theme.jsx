@@ -40,8 +40,11 @@ const theme = createTheme({
       '@media (min-width:600px)': {
         fontSize: '2.75rem',
       },
+      '@media (min-width:1024px)': {
+        fontSize: '3rem',
+      },
       '@media (min-width:1680px)': {
-        fontSize: '6rem',
+        fontSize: '4rem',
       },
     },
     h4: {
@@ -88,6 +91,24 @@ const theme = createTheme({
         root: {
           '@media(min-width:600px)': {
             padding: '0px',
+            height: '108px',
+          },
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          '&:hover': {
+            backgroundColor: 'transparent',
+          },
+        },
+      },
+    },
+    MuiAppbar: {
+      styleOverrides: {
+        root: {
+          '@media(min-width:600px)': {
             height: '108px',
           },
         },

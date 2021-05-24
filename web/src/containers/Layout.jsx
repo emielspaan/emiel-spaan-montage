@@ -8,16 +8,17 @@ import Typography from '../components/Typography';
 import { palette } from '../components/Theme/variables';
 
 const StyledTypography = styled(Typography)`
-  @media (max-width: 1024px) {
-    padding: 24px;
-  }
   text-transform: uppercase;
   text-decoration: none;
   padding: 0 24px;
   color: ${palette.textPrimary};
 
+  @media (max-width: 1024px) {
+    padding: 24px;
+  }
+
   ${(props) => props.contact
-  && ` @media (min-width: 1024px) {
+  && `@media (min-width: 1024px) {
        font-size: 20px;
        background-color: ${palette.primary};
        color: ${palette.textSecondary};
@@ -40,6 +41,11 @@ const StyledTypography = styled(Typography)`
     }
     `
 }
+`;
+
+const Container = styled.div`
+  max-width: 1920px;
+  margin: 0 auto;
 `;
 
 const links = [
@@ -93,9 +99,13 @@ const Navbar = () => (
 const LayoutContainer = ({ children }) => (
   <Theme>
     <CssBaseline />
-    <Navbar />
-    {children}
-    <footer>Footer</footer>
+    <Container>
+      <main>
+        <Navbar />
+        {children}
+      </main>
+      <footer>Footer</footer>
+    </Container>
   </Theme>
 );
 

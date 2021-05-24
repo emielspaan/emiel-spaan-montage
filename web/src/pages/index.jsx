@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import MailIcon from '@material-ui/icons/Mail';
+import Box from '@material-ui/core/Box';
 import PhoneIcon from '@material-ui/icons/Phone';
 import HomeIcon from '@material-ui/icons/Home';
 import Layout from '../containers/Layout';
@@ -36,13 +37,12 @@ const StyledTypography = styled(Typography)`
   }
 
   @media(min-width: 1024px) {
-    max-width: 500px;
+    max-width: 70%;
     padding: 0 24px 80px;
   }
 `;
 
 const ContactBackground = styled(Grid)`
-  margin-top: -5px;
   background-color: ${palette.primary};
   position: static;
   padding: 16px 0;
@@ -105,7 +105,7 @@ const ContactDetail = ({ icon, children }) => (
 const StyledGrid = styled(Grid)`
     flex-direction: column-reverse;
 
-    @media(min-width:600px) {
+    @media(min-width:720px) {
       flex-direction: ${(props) => props.direction};
     }
 `;
@@ -116,7 +116,7 @@ export const homePageQuery = graphql`
       heroTitle
       heroImage {
         asset {
-          gatsbyImageData(placeholder: BLURRED, formats: JPG)
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: JPG)
         }
       }
       montageTitle
@@ -218,16 +218,23 @@ const IndexPage = (props) => {
           container
           alignItems="center"
         >
-          <Grid item lg={6} md={6} sm={6} xs={12}>
-            <StyledGatsbyImage
-              layout="fullWidth"
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <GatsbyImage
               image={montageImage}
               alt={montageTitle}
             />
           </Grid>
-          <Grid item lg={6} md={6} sm={6} xs={12}>
-            <Typography variant="h4">{montageTitle}</Typography>
-            <Typography variant="body1">{montageDescription}</Typography>
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Box sx={{ maxWidth: '80%', margin: '0 auto', padding: '24px 0' }}>
+              <Typography
+                paragraph
+                variant="h4"
+                align="center"
+              >
+                {montageTitle}
+              </Typography>
+              <Typography paragraph variant="body1">{montageDescription}</Typography>
+            </Box>
           </Grid>
         </StyledGrid>
         <StyledGrid
@@ -235,16 +242,23 @@ const IndexPage = (props) => {
           container
           alignItems="center"
         >
-          <Grid item lg={6} md={6} sm={6} xs={12}>
-            <StyledGatsbyImage
-              layout="fullWidth"
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <GatsbyImage
               image={verfSpuitenImage}
               alt={verfSpuitenTitle}
             />
           </Grid>
-          <Grid item lg={6} md={6} sm={6} xs={12}>
-            <Typography variant="h4">{verfSpuitenTitle}</Typography>
-            <Typography variant="body1">{verfSpuitenDescription}</Typography>
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Box sx={{ maxWidth: '80%', margin: '0 auto', padding: '24px 0' }}>
+              <Typography
+                paragraph
+                variant="h4"
+                align="center"
+              >
+                {verfSpuitenTitle}
+              </Typography>
+              <Typography paragraph variant="body1">{verfSpuitenDescription}</Typography>
+            </Box>
           </Grid>
         </StyledGrid>
       </Grid>
