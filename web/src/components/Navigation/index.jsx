@@ -94,7 +94,6 @@ const Navigation = ({ links }) => {
     },
   } = data;
 
-  console.log(data);
   return (
     <StyledAppBar position="static">
       <StyledIconButton

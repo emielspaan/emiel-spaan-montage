@@ -5,7 +5,7 @@ import { bodyFont, headingFont } from './fonts';
 import { palette } from './variables';
 
 const {
-  primary, textPrimary, textSecondary, backgroundPrimary, backgroundSecondary,
+  primary, textPrimary, textSecondary, backgroundPrimary,
 } = palette;
 
 const theme = createTheme({

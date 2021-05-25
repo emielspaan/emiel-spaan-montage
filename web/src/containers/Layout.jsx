@@ -6,6 +6,7 @@ import Anchor from '../components/Anchor';
 import Theme from '../components/Theme/Theme';
 import Typography from '../components/Typography';
 import { palette } from '../components/Theme/variables';
+import Footer from '../components/Footer';
 
 const StyledTypography = styled(Typography)`
   text-transform: uppercase;
@@ -104,7 +105,7 @@ const LayoutContainer = ({ children }) => (
         <Navbar />
         {children}
       </main>
-      <footer>Footer</footer>
+      <Footer />
     </Container>
   </Theme>
 );
