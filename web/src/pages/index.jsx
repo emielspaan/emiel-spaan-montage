@@ -16,6 +16,14 @@ const StyledGatsbyImage = styled(GatsbyImage)`
   max-height: calc(100vh - 108px);
 `;
 
+const FullWidthGatsbyImage = styled(GatsbyImage)`
+  &&& {
+    @media(max-width: 1023px) {
+      width: 100%;
+    }
+  }
+`;
+
 const StyledTypography = styled(Typography)`
   padding: 24px;
   max-width: 300px;
@@ -105,7 +113,7 @@ const ContactDetail = ({ icon, children }) => (
 const StyledGrid = styled(Grid)`
     flex-direction: column-reverse;
 
-    @media(min-width:720px) {
+    @media(min-width:1024px) {
       flex-direction: ${(props) => props.direction};
     }
 `;
@@ -218,23 +226,21 @@ const IndexPage = (props) => {
           container
           alignItems="center"
         >
-          <Grid item lg={6} md={6} sm={12} xs={12}>
-            <GatsbyImage
+          <Grid item lg={6} md={12} sm={12} xs={12}>
+            <FullWidthGatsbyImage
               image={montageImage}
               alt={montageTitle}
             />
           </Grid>
-          <Grid item lg={6} md={6} sm={12} xs={12}>
-            <Box sx={{ maxWidth: '80%', margin: '0 auto', padding: '24px 0' }}>
-              <Typography
-                paragraph
-                variant="h4"
-                align="center"
-              >
-                {montageTitle}
-              </Typography>
-              <Typography paragraph variant="body1">{montageDescription}</Typography>
-            </Box>
+          <Grid item lg={6} md={12} sm={12} xs={12}>
+            <Typography
+              paragraph
+              variant="h4"
+              align="center"
+            >
+              {montageTitle}
+            </Typography>
+            <Typography paragraph variant="body1">{montageDescription}</Typography>
           </Grid>
         </StyledGrid>
         <StyledGrid
@@ -242,23 +248,21 @@ const IndexPage = (props) => {
           container
           alignItems="center"
         >
-          <Grid item lg={6} md={6} sm={12} xs={12}>
-            <GatsbyImage
+          <Grid item lg={6} md={12} sm={12} xs={12}>
+            <FullWidthGatsbyImage
               image={verfSpuitenImage}
               alt={verfSpuitenTitle}
             />
           </Grid>
-          <Grid item lg={6} md={6} sm={12} xs={12}>
-            <Box sx={{ maxWidth: '80%', margin: '0 auto', padding: '24px 0' }}>
-              <Typography
-                paragraph
-                variant="h4"
-                align="center"
-              >
-                {verfSpuitenTitle}
-              </Typography>
-              <Typography paragraph variant="body1">{verfSpuitenDescription}</Typography>
-            </Box>
+          <Grid item lg={6} md={12} sm={12} xs={12}>
+            <Typography
+              paragraph
+              variant="h4"
+              align="center"
+            >
+              {verfSpuitenTitle}
+            </Typography>
+            <Typography paragraph variant="body1">{verfSpuitenDescription}</Typography>
           </Grid>
         </StyledGrid>
       </Grid>

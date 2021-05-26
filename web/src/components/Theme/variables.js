@@ -4,6 +4,7 @@ const palette = {
   textSecondary: '#FFFFFF',
   backgroundPrimary: '#FFFFFF',
   backgroundSecondary: '#F6F6FF',
+  black: 'rgba(0,0,0,0.87)',
 };
 
 const otherVariables = {};

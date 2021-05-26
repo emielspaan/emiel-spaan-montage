@@ -44,9 +44,10 @@ const StyledTypography = styled(Typography)`
 }
 `;
 
-const Container = styled.div`
+const Container = styled.main`
   max-width: 1920px;
   margin: 0 auto;
+  min-height: 100vh;
 `;
 
 const links = [
@@ -100,13 +101,11 @@ const Navbar = () => (
 const LayoutContainer = ({ children }) => (
   <Theme>
     <CssBaseline />
+    <Navbar />
     <Container>
-      <main>
-        <Navbar />
-        {children}
-      </main>
-      <Footer />
+      {children}
     </Container>
+    <Footer />
   </Theme>
 );
 

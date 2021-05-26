@@ -4,14 +4,38 @@ import styled from '@emotion/styled';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Grid from '../Grid';
 import Typography from '../Typography';
+import Anchor from '../Anchor';
+import { palette } from '../Theme/variables';
 
 const StyledGrid = styled(Grid)`
-  padding: 32px 16px;
-  background-color: black;
+  padding: 24px 0;
+  background-color: ${palette.backgroundPrimary};
+  border-top: 1px solid ${palette.black};
+  margin-top: 32px;
 
-  @media (min-width: 600px) {
-    padding: 32px 48px;   
+  @media (min-width: 1024px) {
+    padding: 64px 0px;
+    border-top: none;
+    margin-top: 0;
   }
+`;
+
+const StyledGridItem = styled(Grid)`
+  padding: 16px 24px;  
+  max-width: 375px;
+
+  @media (min-width: 1024px) {
+    padding: 0 48px 0 24px;
+    
+    ${(props) => props.divider
+    && `border-left: 1px solid ${palette.black}`
+};
+  }
+`;
+
+const StyledGatsbyImageContainer = styled.div`
+  max-width: 120px;
+  padding-top: 8px;
 `;
 
 const Footer = () => {
@@ -40,31 +64,34 @@ const Footer = () => {
     },
   } = data;
   return (
-    <StyledGrid component="footer" container>
-      <Grid item lg={4}>
-        {' '}
-        <GatsbyImage
-          image={gatsbyImageData}
-          alt="Emiel Spaan Montage"
-        />
-
-      </Grid>
-      <Grid item lg={4}>
-        <Typography color="textSecondary" variant="h5">Contact</Typography>
-        <Typography color="textSecondary" variant="body2">
+    <StyledGrid
+      component="footer"
+      container
+    >
+      <StyledGridItem item lg={3} md={3} sm={12} xs={12}>
+        <StyledGatsbyImageContainer>
+          <GatsbyImage
+            image={gatsbyImageData}
+            alt="Emiel Spaan Montage"
+          />
+        </StyledGatsbyImageContainer>
+      </StyledGridItem>
+      <StyledGridItem item lg={4} md={3} sm={12} xs={12}>
+        <Typography color="textPrimary" paragraph variant="h5">Contact</Typography>
+        <Typography color="textPrimary" paragraph variant="body2">
           Geinteresseerd? Neem dan contact met
           mij op voor een vrijblijvend gesprek.
         </Typography>
-        <Typography color="textSecondary" variant="subtitle2">Tel:</Typography>
-        <Typography color="textSecondary" variant="subtitle2">Email:</Typography>
-        <Typography color="textSecondary" variant="subtitle2">Adres:</Typography>
-      </Grid>
-      <Grid item lg={4}>
-        <Typography color="textSecondary" variant="subtitle1">Wat ik doe</Typography>
-        <Typography color="textSecondary" variant="subtitle1">Mijn projecten</Typography>
-        <Typography color="textSecondary" variant="subtitle1">Wat klanten zeggen</Typography>
-        <Typography color="textSecondary" variant="subtitle1">Contact</Typography>
-      </Grid>
+        <Typography color="textPrimary" variant="subtitle2">Tel:</Typography>
+        <Typography color="textPrimary" variant="subtitle2">Email:</Typography>
+        <Typography color="textPrimary" variant="subtitle2">Adres:</Typography>
+      </StyledGridItem>
+      <StyledGridItem item lg={4} md={3} sm={12} xs={12} divider>
+        <Anchor href="/"><Typography color="textPrimary" variant="subtitle1">Wat ik doe</Typography></Anchor>
+        <Anchor href="/mijn-projecten"><Typography color="textPrimary" variant="subtitle1">Mijn projecten</Typography></Anchor>
+        <Anchor href="/wat-klanten-zeggen"><Typography color="textPrimary" variant="subtitle1">Wat klanten zeggen</Typography></Anchor>
+        <Anchor href="/contact"><Typography color="textPrimary" variant="subtitle1">Contact</Typography></Anchor>
+      </StyledGridItem>
     </StyledGrid>
   );
 };
