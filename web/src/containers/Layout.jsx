@@ -45,8 +45,6 @@ const StyledTypography = styled(Typography)`
 `;
 
 const Container = styled.main`
-  max-width: 1920px;
-  margin: 0 auto;
   min-height: 100vh;
 `;
 

@@ -16,21 +16,13 @@ const StyledGatsbyImage = styled(GatsbyImage)`
   max-height: calc(100vh - 108px);
 `;
 
-const FullWidthGatsbyImage = styled(GatsbyImage)`
-  &&& {
-    @media(max-width: 1023px) {
-      width: 100%;
-    }
-  }
-`;
-
 const StyledTypography = styled(Typography)`
   padding: 24px;
   max-width: 300px;
   text-transform: uppercase;
   font-weight: 500;
 
-  @media(max-width: 600px) {
+  @media(max-width: 599px) {
     position: absolute;
     padding: 0;
     z-index: 10;
@@ -110,12 +102,16 @@ const ContactDetail = ({ icon, children }) => (
   </Container>
 );
 
-const StyledGrid = styled(Grid)`
-    flex-direction: column-reverse;
+const TextContainer = styled.div`
+  padding: 48px 24px;
+`;
 
-    @media(min-width:1024px) {
-      flex-direction: ${(props) => props.direction};
-    }
+const StyledGrid = styled(Grid)`
+  flex-direction: ${(props) => props.direction};
+
+  @media(min-width: 600px) {
+    flex-direction: row;
+  }
 `;
 
 export const homePageQuery = graphql`
@@ -124,7 +120,7 @@ export const homePageQuery = graphql`
       heroTitle
       heroImage {
         asset {
-          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: JPG)
+          gatsbyImageData(placeholder: BLURRED, formats: JPG)
         }
       }
       montageTitle
@@ -177,92 +173,92 @@ const IndexPage = (props) => {
     <Layout>
       <Grid
         container
+        alignItems="center"
       >
-        <Grid
-          container
-          alignItems="center"
-        >
-          <Grid item lg={6} xs={12} md={6} sm={6}>
-            <StyledTypography variant="h3">{heroTitle}</StyledTypography>
-          </Grid>
-          <Grid item lg={6} xs={12} md={6} sm={6}>
-            <StyledGatsbyImage
-              layout="fullWidth"
-              image={heroImage}
-              alt={heroTitle}
-            />
-          </Grid>
-          <ContactBackground
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Grid item lg={3}>
-              <ContactDetail
-                icon={<PhoneIcon />}
-              >
-                06 1164 8410
-              </ContactDetail>
-            </Grid>
-            <Grid item lg={4}>
-              <ContactDetail
-                icon={<MailIcon />}
-              >
-                emiel@EMIELSPAANMONTAGE.nl
-              </ContactDetail>
-            </Grid>
-            <Grid item lg={5}>
-              <ContactDetail
-                icon={<HomeIcon />}
-              >
-                Oosterwerf 44, 1505KC, Zaandam
-              </ContactDetail>
-            </Grid>
-          </ContactBackground>
+        <Grid item lg={6} xs={12} md={6} sm={6}>
+          <StyledTypography variant="h3">{heroTitle}</StyledTypography>
         </Grid>
-        <StyledGrid
-          direction="row"
+        <Grid item lg={6} xs={12} md={6} sm={6}>
+          <StyledGatsbyImage
+            image={heroImage}
+            alt={heroTitle}
+          />
+        </Grid>
+        <ContactBackground
           container
+          direction="row"
+          justifyContent="center"
           alignItems="center"
         >
-          <Grid item lg={6} md={12} sm={12} xs={12}>
-            <FullWidthGatsbyImage
+          <Grid item lg={3}>
+            <ContactDetail
+              icon={<PhoneIcon />}
+            >
+              06 1164 8410
+            </ContactDetail>
+          </Grid>
+          <Grid item lg={4}>
+            <ContactDetail
+              icon={<MailIcon />}
+            >
+              emiel@EMIELSPAANMONTAGE.nl
+            </ContactDetail>
+          </Grid>
+          <Grid item lg={5}>
+            <ContactDetail
+              icon={<HomeIcon />}
+            >
+              Oosterwerf 44, 1505KC, Zaandam
+            </ContactDetail>
+          </Grid>
+        </ContactBackground>
+        <StyledGrid
+          container
+          direction="column-reverse"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <GatsbyImage
               image={montageImage}
               alt={montageTitle}
             />
           </Grid>
-          <Grid item lg={6} md={12} sm={12} xs={12}>
-            <Typography
-              paragraph
-              variant="h4"
-              align="center"
-            >
-              {montageTitle}
-            </Typography>
-            <Typography paragraph variant="body1">{montageDescription}</Typography>
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <TextContainer>
+              <Typography
+                paragraph
+                variant="h4"
+                align="center"
+              >
+                {montageTitle}
+              </Typography>
+              <Typography paragraph variant="body1">{montageDescription}</Typography>
+            </TextContainer>
           </Grid>
         </StyledGrid>
         <StyledGrid
-          direction="row-reverse"
           container
           alignItems="center"
+          justifyContent="center"
         >
-          <Grid item lg={6} md={12} sm={12} xs={12}>
-            <FullWidthGatsbyImage
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <TextContainer>
+              <Typography
+                paragraph
+                variant="h4"
+                align="center"
+              >
+                {verfSpuitenTitle}
+              </Typography>
+              <Typography paragraph variant="body1">{verfSpuitenDescription}</Typography>
+            </TextContainer>
+          </Grid>
+          <Grid item lg={6} md={6} sm={6} xs={12}>
+            <GatsbyImage
               image={verfSpuitenImage}
               alt={verfSpuitenTitle}
             />
-          </Grid>
-          <Grid item lg={6} md={12} sm={12} xs={12}>
-            <Typography
-              paragraph
-              variant="h4"
-              align="center"
-            >
-              {verfSpuitenTitle}
-            </Typography>
-            <Typography paragraph variant="body1">{verfSpuitenDescription}</Typography>
           </Grid>
         </StyledGrid>
       </Grid>
