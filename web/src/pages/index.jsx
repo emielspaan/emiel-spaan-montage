@@ -81,7 +81,6 @@ const ContactTypography = styled(Typography)`
 const Container = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 24px;
 
   .MuiSvgIcon-root {
     color: ${palette.textSecondary};
