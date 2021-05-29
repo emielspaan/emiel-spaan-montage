@@ -10,7 +10,6 @@ import { palette } from '../Theme/variables';
 const StyledGrid = styled(Grid)`
   padding: 24px 0;
   background-color: ${palette.backgroundPrimary};
-  border-top: 1px solid ${palette.black};
   margin-top: 32px;
 
   @media (min-width: 1024px) {
@@ -49,18 +48,27 @@ const Footer = () => {
             },
           },
         },
-      },
+      sanityCompany {
+        address
+        email
+        telephone
+      }
+    },
 `,
   );
 
   const {
-    sanityLogo:
-    {
-      logo:
-      {
-        asset:
-        { gatsbyImageData },
+    sanityLogo: {
+      logo: {
+        asset: {
+          gatsbyImageData,
+        },
       },
+    },
+    sanityCompany: {
+      address,
+      email,
+      telephone,
     },
   } = data;
   return (
@@ -82,9 +90,9 @@ const Footer = () => {
           Geinteresseerd? Neem dan contact met
           mij op voor een vrijblijvend gesprek.
         </Typography>
-        <Typography color="textPrimary" variant="subtitle2">Tel:</Typography>
-        <Typography color="textPrimary" variant="subtitle2">Email:</Typography>
-        <Typography color="textPrimary" variant="subtitle2">Adres:</Typography>
+        <Typography color="textPrimary" variant="subtitle2">{`Tel: ${telephone}`}</Typography>
+        <Typography color="textPrimary" variant="subtitle2">{`Email: ${email}`}</Typography>
+        <Typography color="textPrimary" variant="subtitle2">{`Adres: ${address}`}</Typography>
       </StyledGridItem>
       <StyledGridItem item lg={4} md={3} sm={12} xs={12} divider>
         <Anchor href="/"><Typography color="textPrimary" variant="subtitle1">Wat ik doe</Typography></Anchor>

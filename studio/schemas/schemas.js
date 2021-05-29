@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 // We import object and document schemas
 import page from './page';
 import logo from './logo';
+import company from './company';
 import siteSettings from './siteSettings';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -21,6 +22,7 @@ export default createSchema({
     page,
     logo,
     siteSettings,
+    company,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

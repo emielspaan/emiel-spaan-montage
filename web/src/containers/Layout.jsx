@@ -14,10 +14,6 @@ const StyledTypography = styled(Typography)`
   padding: 0 24px;
   color: ${palette.textPrimary};
 
-  @media (max-width: 1024px) {
-    padding: 24px;
-  }
-
   ${(props) => props.contact
   && `@media (min-width: 1024px) {
        font-size: 20px;

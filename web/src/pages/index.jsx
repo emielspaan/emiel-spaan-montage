@@ -72,7 +72,7 @@ const ContactTypography = styled(Typography)`
   font-weight: 500;
   padding: 24px;
 
-  @media(min-width: 600px) {
+  @media(min-width: 720px) {
     padding: 0;
     font-size: 14px;
   }
@@ -85,6 +85,10 @@ const Container = styled.div`
   .MuiSvgIcon-root {
     color: ${palette.textSecondary};
     margin-right: 8px;
+  }
+
+  @media(min-width: 600px) {
+    padding: 0 24px;
   }
 `;
 
@@ -99,6 +103,10 @@ const ContactDetail = ({ icon, children }) => (
 
 const TextContainer = styled.div`
   padding: 48px 24px;
+
+  @media(min-width: 1024px) {
+    padding: 48px;
+  }
 `;
 
 const StyledGrid = styled(Grid)`
@@ -133,6 +141,11 @@ export const homePageQuery = graphql`
         }
       }
     }
+    sanityCompany {
+      address
+      email
+      telephone
+    }
   }
 `;
 
@@ -160,6 +173,11 @@ const IndexPage = (props) => {
             gatsbyImageData: montageImage,
           },
         },
+      },
+      sanityCompany: {
+        address,
+        email,
+        telephone,
       },
     },
   } = props;
@@ -190,21 +208,21 @@ const IndexPage = (props) => {
             <ContactDetail
               icon={<PhoneIcon />}
             >
-              06 1164 8410
+              {telephone}
             </ContactDetail>
           </Grid>
           <Grid item lg={4}>
             <ContactDetail
               icon={<MailIcon />}
             >
-              emiel@EMIELSPAANMONTAGE.nl
+              {email}
             </ContactDetail>
           </Grid>
           <Grid item lg={5}>
             <ContactDetail
               icon={<HomeIcon />}
             >
-              Oosterwerf 44, 1505KC, Zaandam
+              {address}
             </ContactDetail>
           </Grid>
         </ContactBackground>
