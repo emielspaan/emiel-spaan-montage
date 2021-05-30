@@ -23,7 +23,7 @@ const Card = ({
       <Typography variant={headingTag}>
         {cardHeading}
       </Typography>
-    <Typography variant={bodyTag}>
+      <Typography variant={bodyTag}>
         {cardBody}
       </Typography>
     </CardContent>
