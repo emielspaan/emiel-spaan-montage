@@ -9,30 +9,30 @@ export default {
     {
       name: 'title',
       title: 'Project naam',
-      type: 'image',
+      type: 'string',
     },
     {
       name: 'description',
       title: 'Project omschrijving',
-      type: 'image',
+      type: 'text',
     },
     {
-      name: 'image',
+      name: 'image1',
       title: 'Project plaatje 1',
       type: 'image',
     },
     {
-      name: 'image',
+      name: 'image2',
       title: 'Project plaatje 2',
       type: 'image',
     },
     {
-      name: 'image',
+      name: 'image3',
       title: 'Project plaatje 3',
       type: 'image',
     },
     {
-      name: 'image',
+      name: 'image4',
       title: 'Project plaatje 4',
       type: 'image',
     },

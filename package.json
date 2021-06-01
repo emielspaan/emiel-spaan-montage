@@ -9,6 +9,7 @@
   "scripts": {
     "clean": "lerna clean",
     "deploy": "lerna run deploy",
+    "studio-deploy": "lerna run graphql-deploy && lerna run sanity-deploy",
     "empty-cache": "lerna run empty-cache",
     "init": "cd studio && sanity init && lerna run graphql-deploy",
     "format": "lerna run format",

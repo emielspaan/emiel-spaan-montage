@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import CardContainer from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import Typography from '../Typography';
 
 const Card = ({
-  cssBackgroundImage,
   image,
   headingTag,
   cardHeading,
@@ -15,10 +15,13 @@ const Card = ({
 }) => (
   <CardContainer>
     <CardMedia
-      component="img"
-      image={cssBackgroundImage}
-      src={image}
-    />
+      component="div"
+    >
+      <GatsbyImage
+        image={image}
+        alt={cardHeading}
+      />
+    </CardMedia>
     <CardContent>
       <Typography variant={headingTag}>
         {cardHeading}
@@ -31,7 +34,6 @@ const Card = ({
 );
 
 Card.propTypes = {
-  cssBackgroundImage: PropTypes.string,
   image: PropTypes.string,
   headingTag: PropTypes.string,
   cardHeading: PropTypes.string,
@@ -40,7 +42,6 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  cssBackgroundImage: null,
   image: null,
   headingTag: 'h5',
   cardHeading: null,
