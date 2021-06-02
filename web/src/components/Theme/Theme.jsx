@@ -20,7 +20,6 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: headingFont,
-    fontWeight: 500,
     fontSize: 16,
     body1: {
       fontFamily: bodyFont,
@@ -55,6 +54,7 @@ const theme = createTheme({
     },
     h6: {
       fontFamily: headingFont,
+      fontWeight: 700,
     },
     subtitle2: {
       fontFamily: headingFont,

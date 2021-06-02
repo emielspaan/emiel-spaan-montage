@@ -14,7 +14,8 @@ export default {
     {
       name: 'description',
       title: 'Project omschrijving',
-      type: 'text',
+      type: 'array',
+      of: [{ type: 'block' }],
     },
     {
       name: 'image1',
