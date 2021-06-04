@@ -15,27 +15,10 @@ export default {
       name: 'description',
       title: 'Project omschrijving',
       type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'image1',
-      title: 'Project plaatje 1',
-      type: 'image',
-    },
-    {
-      name: 'image2',
-      title: 'Project plaatje 2',
-      type: 'image',
-    },
-    {
-      name: 'image3',
-      title: 'Project plaatje 3',
-      type: 'image',
-    },
-    {
-      name: 'image4',
-      title: 'Project plaatje 4',
-      type: 'image',
+      of: [
+        { type: 'block' },
+        { type: 'image' },
+      ],
     },
   ],
 };
