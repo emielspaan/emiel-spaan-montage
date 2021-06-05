@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { graphql } from 'gatsby';
 import Grid from '../components/Grid';
 import Layout from '../containers/Layout';
