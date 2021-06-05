@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import PortableText from '@sanity/block-content-to-react';
+import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { graphql } from 'gatsby';
 import Grid from '../components/Grid';
 import Layout from '../containers/Layout';
@@ -11,11 +12,33 @@ const Container = styled.div`
   padding: 24px;
 `;
 
-export const projecPageQuery = graphql`
+export const projectsPageQuery = graphql`
   query {
     allSanityProjects {
-      nodes {
-        _rawDescription(resolveReferences: { maxDepth: 5 })
+      edges {
+        node {
+          plaatje1 {
+            asset {
+              gatsbyImageData(width: 800, height: 800, placeholder: BLURRED, formats: JPG)
+            }
+          }
+          plaatje2 {
+            asset {
+              gatsbyImageData(width: 800, height: 800, placeholder: BLURRED, formats: JPG)
+            }
+          }
+          plaatje3 {
+            asset {
+              gatsbyImageData(width: 800, height: 800, placeholder: BLURRED, formats: JPG)
+            }
+          }
+          plaatje4 {
+            asset {
+              gatsbyImageData(width: 800, height: 800, placeholder: BLURRED, formats: JPG)
+            }
+          }
+          title
+        }
       }
     }
   }
@@ -24,34 +47,42 @@ export const projecPageQuery = graphql`
 const MijnProjecten = ({ data }) => {
   const {
     allSanityProjects: {
-      nodes,
+      edges,
     },
   } = data;
-  console.log(nodes);
   return (
-    <Layout>
-      <Container>
-        <h1>Mijn projecten</h1>
-        <PortableText
-          blocks={nodes[0]._rawDescription}
-        />
-        {/* <Grid container spacing={3}>
-          {nodes.map((node) => (
-            <Grid item lg={3} xs={12} md={4} sm={6}>
-              <BlockContent
-                blocks={node.rawDescription}
-                serializers
-              />
-              <Card
-                    cardHeading="test"
-                    headingTag="h5"
-                    cardBody={node.rawDescription}
-                  />
-            </Grid>
-          ))}
-        </Grid> */}
-      </Container>
-    </Layout>
+    <SimpleReactLightbox>
+      <Layout>
+        <Container>
+          <h1>Mijn projecten</h1>
+          <Grid container spacing={3}>
+            {edges.map((edge) => {
+              const {
+                node: {
+                  plaatje1: {
+                    asset: {
+                      gatsbyImageData: cardImage,
+                    },
+                  },
+                  title,
+                },
+              } = edge;
+              return (
+                <Grid item lg={3} xs={12} md={4} sm={6}>
+                  <SRLWrapper>
+                    <Card
+                      image={cardImage}
+                      headingTag="body1"
+                      cardHeading={title}
+                    />
+                  </SRLWrapper>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Container>
+      </Layout>
+    </SimpleReactLightbox>
   );
 };
 

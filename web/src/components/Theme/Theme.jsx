@@ -70,6 +70,7 @@ const theme = createTheme({
       xl: 1440,
     },
   },
+  shadows: 0,
   components: {
     MuiCssBaseline: {
       styleOverrides: {

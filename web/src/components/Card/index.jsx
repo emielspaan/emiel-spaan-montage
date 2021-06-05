@@ -9,8 +9,9 @@ import Typography from '../Typography';
 
 const StyledTypography = styled(Typography)`
   &&& {
-    font-weight: 500;
     margin-bottom: 12px;
+    text-transform: uppercase;
+    text-align: center;
   }
 `;
 

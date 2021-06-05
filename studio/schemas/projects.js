@@ -17,8 +17,27 @@ export default {
       type: 'array',
       of: [
         { type: 'block' },
-        { type: 'image' },
       ],
+    },
+    {
+      name: 'plaatje1',
+      title: 'Plaatje 1',
+      type: 'image',
+    },
+    {
+      name: 'plaatje2',
+      title: 'Plaatje 2',
+      type: 'image',
+    },
+    {
+      name: 'plaatje3',
+      title: 'Plaatje 3',
+      type: 'image',
+    },
+    {
+      name: 'plaatje4',
+      title: 'Plaatje 4',
+      type: 'image',
     },
   ],
 };
