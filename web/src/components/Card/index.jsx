@@ -15,6 +15,10 @@ const StyledTypography = styled(Typography)`
   }
 `;
 
+const StyledCardContainer = styled(CardContainer)`
+  cursor: pointer;
+`;
+
 const Card = ({
   image,
   headingTag,
@@ -22,7 +26,7 @@ const Card = ({
   bodyTag,
   cardBody,
 }) => (
-  <CardContainer>
+  <StyledCardContainer>
     <CardMedia
       component="div"
     >
@@ -39,7 +43,7 @@ const Card = ({
         {cardBody}
       </Typography>
     </CardContent>
-  </CardContainer>
+  </StyledCardContainer>
 );
 
 Card.propTypes = {

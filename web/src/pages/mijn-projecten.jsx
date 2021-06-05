@@ -51,38 +51,39 @@ const MijnProjecten = ({ data }) => {
     },
   } = data;
   return (
-    <SimpleReactLightbox>
-      <Layout>
-        <Container>
-          <h1>Mijn projecten</h1>
-          <SRLWrapper>
-            <Grid container spacing={3}>
-              {edges.map((edge) => {
-                const {
-                  node: {
-                    plaatje1: {
-                      asset: {
-                        gatsbyImageData: cardImage,
-                      },
-                    },
-                    title,
+    <Layout>
+      <Container>
+        <h1>Mijn projecten</h1>
+
+        <Grid container spacing={3}>
+          {edges.map((edge) => {
+            const {
+              node: {
+                plaatje1: {
+                  asset: {
+                    gatsbyImageData: cardImage,
                   },
-                } = edge;
-                return (
-                  <Grid item lg={3} xs={12} md={4} sm={6}>
+                },
+                title,
+              },
+            } = edge;
+            return (
+              <Grid item lg={3} xs={12} md={4} sm={6}>
+                <SimpleReactLightbox>
+                  <SRLWrapper>
                     <Card
                       image={cardImage}
                       headingTag="body1"
                       cardHeading={title}
                     />
-                  </Grid>
-                );
-              })}
-            </Grid>
-          </SRLWrapper>
-        </Container>
-      </Layout>
-    </SimpleReactLightbox>
+                  </SRLWrapper>
+                </SimpleReactLightbox>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Container>
+    </Layout>
   );
 };
 
