@@ -55,31 +55,31 @@ const MijnProjecten = ({ data }) => {
       <Layout>
         <Container>
           <h1>Mijn projecten</h1>
-          <Grid container spacing={3}>
-            {edges.map((edge) => {
-              const {
-                node: {
-                  plaatje1: {
-                    asset: {
-                      gatsbyImageData: cardImage,
+          <SRLWrapper>
+            <Grid container spacing={3}>
+              {edges.map((edge) => {
+                const {
+                  node: {
+                    plaatje1: {
+                      asset: {
+                        gatsbyImageData: cardImage,
+                      },
                     },
+                    title,
                   },
-                  title,
-                },
-              } = edge;
-              return (
-                <Grid item lg={3} xs={12} md={4} sm={6}>
-                  <SRLWrapper>
+                } = edge;
+                return (
+                  <Grid item lg={3} xs={12} md={4} sm={6}>
                     <Card
                       image={cardImage}
                       headingTag="body1"
                       cardHeading={title}
                     />
-                  </SRLWrapper>
-                </Grid>
-              );
-            })}
-          </Grid>
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </SRLWrapper>
         </Container>
       </Layout>
     </SimpleReactLightbox>
