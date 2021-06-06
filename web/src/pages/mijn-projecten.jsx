@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox';
 import { graphql } from 'gatsby';
 import Grid from '../components/Grid';
 import Layout from '../containers/Layout';
 import Card from '../components/Card';
+import Anchor from '../components/Anchor';
 
 const Container = styled.div`
   padding: 24px;
@@ -16,27 +16,15 @@ export const projectsPageQuery = graphql`
     allSanityProjects {
       edges {
         node {
-          plaatje1 {
-            asset {
-              gatsbyImageData(width: 800, height: 800, placeholder: BLURRED, formats: JPG)
-            }
-          }
-          plaatje2 {
-            asset {
-              gatsbyImageData(width: 800, height: 800, placeholder: BLURRED, formats: JPG)
-            }
-          }
-          plaatje3 {
-            asset {
-              gatsbyImageData(width: 800, height: 800, placeholder: BLURRED, formats: JPG)
-            }
-          }
-          plaatje4 {
-            asset {
-              gatsbyImageData(width: 800, height: 800, placeholder: BLURRED, formats: JPG)
-            }
-          }
           title
+          slug {
+            current
+          }
+          images {
+            asset {
+              gatsbyImageData(width: 500, height: 500, placeholder: BLURRED, formats: JPG)
+            }
+          }
         }
       }
     }
@@ -58,25 +46,28 @@ const MijnProjecten = ({ data }) => {
           {edges.map((edge) => {
             const {
               node: {
-                plaatje1: {
-                  asset: {
-                    gatsbyImageData: cardImage,
-                  },
-                },
+                images,
                 title,
+                slug: {
+                  current: slug,
+                },
               },
             } = edge;
+
+            const {
+              asset: {
+                gatsbyImageData,
+              },
+            } = images[0];
             return (
               <Grid item lg={3} xs={12} md={4} sm={6}>
-                <SimpleReactLightbox>
-                  <SRLWrapper>
-                    <Card
-                      image={cardImage}
-                      headingTag="body1"
-                      cardHeading={title}
-                    />
-                  </SRLWrapper>
-                </SimpleReactLightbox>
+                <Anchor href={`/${slug}`}>
+                  <Card
+                    image={gatsbyImageData}
+                    headingTag="body1"
+                    cardHeading={title}
+                  />
+                </Anchor>
               </Grid>
             );
           })}

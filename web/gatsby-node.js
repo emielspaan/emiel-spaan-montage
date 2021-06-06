@@ -6,41 +6,36 @@ exports.createPages = async ({ graphql, actions }) => {
     allSanityProjects {
       edges {
         node {
-            title
-            slug {
-                current
+          title
+          images {
+            asset {
+              gatsbyImageData(width: 500, height: 500, placeholder: BLURRED, formats: JPG)
             }
+          }
+          slug {
+            current
+          }
         }
       }
     }
-}
-  `);
+  }
+`);
 
-  console.log(result.data.allSanityProjects.edges);
-
-  const dogData = [
-    {
-      name: 'Fido',
-      breed: 'Sheltie',
-    },
-    {
-      name: 'Sparky',
-      breed: 'Corgi',
-    },
-  ];
   result.data.allSanityProjects.edges.forEach((edge) => {
     const {
       node: {
         title,
+        images,
         slug: {
           current,
         },
       },
     } = edge;
+
     createPage({
       path: `/${current}`,
       component: require.resolve('./src/templates/BlogPost.jsx'),
-      context: { title },
+      context: { title, images },
     });
   });
 };
