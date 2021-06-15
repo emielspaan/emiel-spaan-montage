@@ -41,7 +41,6 @@ const MijnProjecten = ({ data }) => {
     <Layout>
       <Container>
         <h1>Mijn projecten</h1>
-
         <Grid container spacing={3}>
           {edges.map((edge) => {
             const {
