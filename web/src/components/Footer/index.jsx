@@ -97,7 +97,6 @@ const Footer = () => {
       <StyledGridItem item lg={4} md={3} sm={12} xs={12} divider>
         <Anchor href="/"><Typography color="textPrimary" variant="subtitle1">Wat ik doe</Typography></Anchor>
         <Anchor href="/mijn-projecten"><Typography color="textPrimary" variant="subtitle1">Mijn projecten</Typography></Anchor>
-        <Anchor href="/wat-klanten-zeggen"><Typography color="textPrimary" variant="subtitle1">Wat klanten zeggen</Typography></Anchor>
         <Anchor href="/contact"><Typography color="textPrimary" variant="subtitle1">Contact</Typography></Anchor>
       </StyledGridItem>
     </StyledGrid>
