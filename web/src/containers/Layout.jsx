@@ -123,7 +123,7 @@ const LayoutContainer = ({ children }) => (
         {children}
       </Container>
       <Footer />
-      <a href="https://wa.link/efmgh5" target="_blank" rel="noopener noreferrer nofollow">
+      <a href="https://wa.me/31611648410" target="_blank" rel="noopener noreferrer nofollow">
         <WhatsApp>
           <WhatsAppIcon color="textPrimary" />
         </WhatsApp>

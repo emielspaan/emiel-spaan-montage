@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
 import Grid from '../components/Grid';
 import Layout from '../containers/Layout';
@@ -39,8 +40,15 @@ const MijnProjecten = ({ data }) => {
   } = data;
   return (
     <Layout>
+      <Helmet>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+        <meta charSet="utf-8" />
+        <title>Mijn afgeronde montage, timmer, verf of schilder projecten</title>
+        <meta name="description" content="Een overzicht van een aantal afgeronde montage, timmer, verf of schilder projecten" />
+      </Helmet>
       <Container>
         <h1>Mijn projecten</h1>
+        <p>Een overzicht van een aantal afgeronde projecten:</p>
         <Grid container spacing={3}>
           {edges.map((edge) => {
             const {

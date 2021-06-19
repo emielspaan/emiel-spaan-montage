@@ -21,5 +21,10 @@ export default {
       title: 'Adres',
       type: 'string',
     },
+    {
+      name: 'name',
+      title: 'Naam',
+      type: 'string',
+    },
   ],
 };

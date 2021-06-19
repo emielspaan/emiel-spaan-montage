@@ -6,6 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import MailIcon from '@material-ui/icons/Mail';
 import PhoneIcon from '@material-ui/icons/Phone';
 import HomeIcon from '@material-ui/icons/Home';
+import { Helmet } from 'react-helmet';
 import Layout from '../containers/Layout';
 import Grid from '../components/Grid';
 import Typography from '../components/Typography';
@@ -184,6 +185,11 @@ const IndexPage = (props) => {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Montage, timmerman, verf of schilderklussen</title>
+        <meta name="description" content="Emiel Spaan Montage is de specialist voor al uw montage, timmer, verf of schilder werkzaamheden in en rondom het huis" />
+      </Helmet>
       <Grid
         container
         alignItems="center"
