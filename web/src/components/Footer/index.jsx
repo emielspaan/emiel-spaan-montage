@@ -85,14 +85,19 @@ const Footer = () => {
         </StyledGatsbyImageContainer>
       </StyledGridItem>
       <StyledGridItem item lg={4} md={3} sm={12} xs={12}>
-        <Typography color="textPrimary" paragraph variant="h5">Contact</Typography>
+        <Typography color="textPrimary" paragraph variant="h5">CONTACT</Typography>
         <Typography color="textPrimary" paragraph variant="body2">
           Geinteresseerd? Neem dan contact met
           mij op voor een vrijblijvend gesprek.
         </Typography>
-        <Typography color="textPrimary" variant="subtitle2">{`Tel: ${telephone}`}</Typography>
-        <Typography color="textPrimary" variant="subtitle2">{`Email: ${email}`}</Typography>
-        <Typography color="textPrimary" variant="subtitle2">{`Adres: ${address}`}</Typography>
+        <Typography color="textPrimary" variant="subtitle2">{telephone}</Typography>
+        <Typography color="textPrimary" variant="subtitle2">{email}</Typography>
+        {address
+        && (
+        <Typography color="textPrimary" variant="subtitle2">
+          {`Adres: ${address}`}
+        </Typography>
+        )}
       </StyledGridItem>
       <StyledGridItem item lg={4} md={3} sm={12} xs={12} divider>
         <Anchor href="/"><Typography color="textPrimary" variant="subtitle1">Wat ik doe</Typography></Anchor>

@@ -52,7 +52,7 @@ const ContactBackground = styled(Grid)`
     bottom: 0;
     max-width: 75%;
     position: absolute;
-    min-height: 20%;
+    min-height: 150px;
     padding: 0;
 
     &::after {
@@ -75,7 +75,7 @@ const ContactTypography = styled(Typography)`
 
   @media(min-width: 720px) {
     padding: 0;
-    font-size: 14px;
+    font-size: 18px;
   }
 `;
 
@@ -207,7 +207,6 @@ const IndexPage = (props) => {
         <ContactBackground
           container
           direction="row"
-          justifyContent="center"
           alignItems="center"
         >
           <Grid item lg={3}>
@@ -224,6 +223,8 @@ const IndexPage = (props) => {
               {email}
             </ContactDetail>
           </Grid>
+          {address
+          && (
           <Grid item lg={5}>
             <ContactDetail
               icon={<HomeIcon />}
@@ -231,6 +232,7 @@ const IndexPage = (props) => {
               {address}
             </ContactDetail>
           </Grid>
+          )}
         </ContactBackground>
         <StyledGrid
           container

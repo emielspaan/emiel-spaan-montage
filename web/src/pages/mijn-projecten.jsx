@@ -47,8 +47,8 @@ const MijnProjecten = ({ data }) => {
         <meta name="description" content="Een overzicht van een aantal afgeronde montage, timmer, verf of schilder projecten" />
       </Helmet>
       <Container>
-        <h1>Mijn projecten</h1>
-        <p>Een overzicht van een aantal afgeronde projecten:</p>
+        <h1>MIJN PROJECTEN</h1>
+        <p>Een overzicht van een aantal afgeronde projecten.</p>
         <Grid container spacing={3}>
           {edges.map((edge) => {
             const {

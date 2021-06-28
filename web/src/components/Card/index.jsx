@@ -42,6 +42,9 @@ const Card = ({
       <Typography variant={bodyTag}>
         {cardBody}
       </Typography>
+      <Typography align="center" color="primary" variant="subtitle2">
+        Meer foto's
+      </Typography>
     </CardContent>
   </StyledCardContainer>
 );
