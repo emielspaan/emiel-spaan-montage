@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions }) => {
           title
           images {
             asset {
-              gatsbyImageData(width: 500, height: 500, placeholder: BLURRED, formats: JPG)
+              gatsbyImageData(width: 1000, height: 1000, placeholder: BLURRED, formats: JPG)
             }
           }
           slug {

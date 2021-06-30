@@ -16,7 +16,11 @@ const StyledGatsbyImage = styled(GatsbyImage)`
   max-height: calc(100vh - 108px);
 `;
 
-const StyledTypography = styled(Typography)`
+const UppercaseTypography = styled(Typography)`
+  text-transform: uppercase;
+`;
+
+const HeroTitle = styled(Typography)`
   padding: 24px;
   max-width: 300px;
   text-transform: uppercase;
@@ -45,7 +49,7 @@ const StyledTypography = styled(Typography)`
 const ContactBackground = styled(Grid)`
   background-color: ${palette.primary};
   position: static;
-  padding: 32px 0;
+  padding: 32px 24px;
 
   @media(min-width: 1024px){
     z-index: 5;
@@ -195,7 +199,7 @@ const IndexPage = (props) => {
         alignItems="center"
       >
         <Grid item lg={6} xs={12} md={6} sm={6}>
-          <StyledTypography variant="h3">{heroTitle}</StyledTypography>
+          <HeroTitle variant="h3">{heroTitle}</HeroTitle>
         </Grid>
         <Grid item lg={6} xs={12} md={6} sm={6}>
           <StyledGatsbyImage
@@ -248,13 +252,13 @@ const IndexPage = (props) => {
           </Grid>
           <Grid item lg={6} md={12} sm={12} xs={12}>
             <TextContainer>
-              <Typography
+              <UppercaseTypography
                 paragraph
                 variant="h4"
                 align="center"
               >
                 {montageTitle}
-              </Typography>
+              </UppercaseTypography>
               <Typography paragraph variant="body1">{montageDescription}</Typography>
             </TextContainer>
           </Grid>
@@ -266,13 +270,13 @@ const IndexPage = (props) => {
         >
           <Grid item lg={6} md={12} sm={12} xs={12}>
             <TextContainer>
-              <Typography
+              <UppercaseTypography
                 paragraph
                 variant="h4"
                 align="center"
               >
                 {verfSpuitenTitle}
-              </Typography>
+              </UppercaseTypography>
               <Typography paragraph variant="body1">{verfSpuitenDescription}</Typography>
             </TextContainer>
           </Grid>
