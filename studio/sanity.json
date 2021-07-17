@@ -13,8 +13,7 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool",
-    "netlify-deploy-status-badge"
+    "@sanity/desk-tool"
   ],
   "parts": [
     {

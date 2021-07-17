@@ -12,11 +12,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'heroDesciption',
-      title: 'Grote Tekst',
-      type: 'string',
-    },
-    {
       name: 'heroImage',
       title: 'Plaatje',
       type: 'image',
